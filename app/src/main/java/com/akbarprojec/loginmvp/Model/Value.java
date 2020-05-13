@@ -9,8 +9,28 @@ public class Value {
     String value;
     @SerializedName("message")
     String message;
-    @SerializedName("result")
+    @SerializedName("resultUser")
+    List<User> userData;
+    @SerializedName("resultNotifikasi")
     List<Notif> notifList;
+    @SerializedName("resultOrder")
+    List<Order> orderList;
+
+    public List<User> getUserData() {
+        return userData;
+    }
+
+    public void setUserData(List<User> userData) {
+        this.userData = userData;
+    }
+
+    public List<Order> getOrderList() {
+        return orderList;
+    }
+
+    public void setOrderList(List<Order> orderList) {
+        this.orderList = orderList;
+    }
 
     public List<Notif> getNotifList() {
         return notifList;

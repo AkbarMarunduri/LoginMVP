@@ -11,9 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".View.NotifikasiActivity"></activity>
-        <activity android:name=".View.IndextActivity" />
-        <activity android:name=".View.MainActivity">
+        <activity android:name=".View.CreatedNotificationActivity"></activity>
+        <activity android:name=".View.MainActivity" />
+        <activity android:name=".View.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

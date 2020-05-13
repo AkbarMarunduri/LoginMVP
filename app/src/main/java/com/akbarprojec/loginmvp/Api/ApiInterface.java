@@ -17,4 +17,7 @@ public interface ApiInterface {
     @GET("Notifikasi.php")
     Call<Value> getListNotifikasi();
 
+    @GET("Order.php")
+    Call<Value> getListOrder();
+
 }

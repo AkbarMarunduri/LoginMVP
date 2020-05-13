@@ -6,35 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".View.MainActivity">
 
-    <LinearLayout
+    <FrameLayout
+        android:id="@+id/containerFragment"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp">
+        android:layout_height="match_parent"
+        android:layout_above="@+id/bottomNavigationView"/>
 
-        <com.rengwuxian.materialedittext.MaterialEditText
-            android:id="@+id/edt_email"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Email"
-            android:inputType="textEmailAddress"
-            app:met_floatingLabel="highlight"/>
-
-        <com.rengwuxian.materialedittext.MaterialEditText
-            android:id="@+id/edt_password"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Password"
-            android:inputType="textPassword"
-            app:met_floatingLabel="highlight"/>
-
-        <Button
-            android:id="@+id/btn_login"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Login"
-            style="@style/Widget.AppCompat.Button.Colored"/>
-
-    </LinearLayout>
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_alignParentBottom="true"
+        app:menu="@menu/nav_menu"/>
 
 </RelativeLayout>
