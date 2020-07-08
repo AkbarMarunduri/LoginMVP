@@ -16,6 +16,8 @@ import com.akbarprojec.loginmvp.View.AIview.ILoginView;
 import com.google.android.material.snackbar.BaseTransientBottomBar;
 import com.google.android.material.snackbar.Snackbar;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 public class LoginActivity extends AppCompatActivity implements ILoginView {
@@ -53,9 +55,9 @@ public class LoginActivity extends AppCompatActivity implements ILoginView {
         User user = users.get(0);
         //Toasty.success(this, pesan, Toasty.LENGTH_SHORT).show();
         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-        intent.putExtra("user", user.getUser().toString());
-        intent.putExtra("level", user.getLevel().toString());
-        Toasty.success(this, "User : " + user.getUser() + "\n" + "Level : " + user.getLevel().toString()).show();
+        intent.putExtra("user", user.getUser());
+        intent.putExtra("level", user.getLevel());
         startActivity(intent);
     }
+
 }

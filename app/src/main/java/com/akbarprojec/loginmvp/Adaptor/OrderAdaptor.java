@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.akbarprojec.loginmvp.Model.Order;
 import com.akbarprojec.loginmvp.R;
@@ -51,7 +52,7 @@ public class OrderAdaptor extends RecyclerView.Adapter<OrderAdaptor.MyAdaptor> {
 
 
     public class MyAdaptor extends RecyclerView.ViewHolder {
-        MaterialEditText nomor, desc, status, created, release;
+        TextView nomor, desc, status, created, release;
 
         public MyAdaptor(@NonNull View itemView) {
             super(itemView);

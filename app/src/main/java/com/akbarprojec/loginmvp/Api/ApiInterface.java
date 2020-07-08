@@ -20,4 +20,18 @@ public interface ApiInterface {
     @GET("Order.php")
     Call<Value> getListOrder();
 
+    @FormUrlEncoded
+    @POST("createNotifikasi.php")
+    Call<Value> creatNotifkasi(@Field("desc") String desc,
+                               @Field("status") String status,
+                               @Field("mesin") String mesin,
+                               @Field("tgl") String tanggal,
+                               @Field("jam") String jam,
+                               @Field("plant") String plant,
+                               @Field("pelapor") String pelapor,
+                               @Field("catatan") String catatan,
+                               @Field("created") String created,
+                               @Field("crtdate") String creatdate);
+
+
 }

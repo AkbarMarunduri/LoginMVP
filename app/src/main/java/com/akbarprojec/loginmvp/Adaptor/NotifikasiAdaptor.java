@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.akbarprojec.loginmvp.Model.Notif;
+import com.akbarprojec.loginmvp.Model.Notifikasi;
 import com.akbarprojec.loginmvp.R;
 
 import java.util.List;
@@ -16,11 +16,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class NotifikasiAdaptor extends RecyclerView.Adapter<NotifikasiAdaptor.MyNotifikasi> {
 
-    List<Notif> notifList;
+    List<Notifikasi> notifikasiList;
     Context context;
 
-    public NotifikasiAdaptor(List<Notif> notifList, Context context) {
-        this.notifList = notifList;
+    public NotifikasiAdaptor(List<Notifikasi> notifikasiList, Context context) {
+        this.notifikasiList = notifikasiList;
         this.context = context;
     }
 
@@ -34,12 +34,12 @@ public class NotifikasiAdaptor extends RecyclerView.Adapter<NotifikasiAdaptor.My
 
     @Override
     public void onBindViewHolder(@NonNull MyNotifikasi holder, int position) {
-        Notif notif = notifList.get(position);
+        Notifikasi notifikasi = notifikasiList.get(position);
         String nomor,desc,mesin,status;
-        nomor=notif.getNomor().toString();
-        desc=notif.getDesc().toString();
-        mesin=notif.getMesin().toString();
-        status=notif.getStatus().toString();
+        nomor= notifikasi.getNomor().toString();
+        desc= notifikasi.getDesc().toString();
+        mesin= notifikasi.getMesin().toString();
+        status= notifikasi.getStatus().toString();
 
         holder.tvnomor.setText(nomor);
         holder.tvdesc.setText(desc);
@@ -49,7 +49,7 @@ public class NotifikasiAdaptor extends RecyclerView.Adapter<NotifikasiAdaptor.My
 
     @Override
     public int getItemCount() {
-        return notifList.size();
+        return notifikasiList.size();
     }
 
     public class MyNotifikasi extends RecyclerView.ViewHolder {

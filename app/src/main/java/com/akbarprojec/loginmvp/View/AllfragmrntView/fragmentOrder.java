@@ -20,8 +20,10 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import es.dmoral.toasty.Toasty;
 
 public class fragmentOrder extends Fragment implements IOrderView {
+    public static String KEY_USER = "";
     RecyclerView recyclerView;
     OrderAdaptor orderAdaptor;
     Context context;
@@ -39,6 +41,8 @@ public class fragmentOrder extends Fragment implements IOrderView {
         OrderPresenter presenter = new OrderPresenter(this);
         presenter.listDataOrder();
         recyclerView = view.findViewById(R.id.rv_order);
+
+        Toasty.success(view.getContext(),getArguments().getString(KEY_USER),Toasty.LENGTH_SHORT).show();
     }
 
     @Override

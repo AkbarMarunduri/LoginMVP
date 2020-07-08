@@ -1,9 +1,10 @@
 package com.akbarprojec.loginmvp.View.AIview;
 
-import com.akbarprojec.loginmvp.Model.Notif;
+import com.akbarprojec.loginmvp.Model.Notifikasi;
 
 import java.util.List;
 
 public interface INotifikasiView {
-    void notifikasiList(List<Notif> notifListData);
+    void notifikasiList(List<Notifikasi> notifikasiListData);
 }
+

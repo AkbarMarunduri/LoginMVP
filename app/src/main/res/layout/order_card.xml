@@ -15,31 +15,31 @@
         android:orientation="vertical"
         android:layout_margin="10dp">
 
-        <com.rengwuxian.materialedittext.MaterialEditText
+        <TextView
             android:id="@+id/tv_noorder"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="nomot" />
 
-        <com.rengwuxian.materialedittext.MaterialEditText
+        <TextView
             android:id="@+id/tv_descOrder"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Description" />
 
-        <com.rengwuxian.materialedittext.MaterialEditText
+        <TextView
             android:id="@+id/tv_stsOrder"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Status" />
 
-        <com.rengwuxian.materialedittext.MaterialEditText
+        <TextView
             android:id="@+id/tv_created"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Created" />
 
-        <com.rengwuxian.materialedittext.MaterialEditText
+        <TextView
             android:id="@+id/tv_release"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

@@ -12,7 +12,7 @@ public class Value {
     @SerializedName("resultUser")
     List<User> userData;
     @SerializedName("resultNotifikasi")
-    List<Notif> notifList;
+    List<Notifikasi> notifikasiList;
     @SerializedName("resultOrder")
     List<Order> orderList;
 
@@ -32,12 +32,12 @@ public class Value {
         this.orderList = orderList;
     }
 
-    public List<Notif> getNotifList() {
-        return notifList;
+    public List<Notifikasi> getNotifikasiList() {
+        return notifikasiList;
     }
 
-    public void setNotifList(List<Notif> notifList) {
-        this.notifList = notifList;
+    public void setNotifikasiList(List<Notifikasi> notifikasiList) {
+        this.notifikasiList = notifikasiList;
     }
 
     public String getMessage() {

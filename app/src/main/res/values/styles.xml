@@ -16,6 +16,12 @@
         <item name="colorOnBackground">@color/darkblue5</item>
         <item name="colorOnError">@color/errorcolor</item>
         <item name="colorOnSurface">@color/white</item>
+
+    </style>
+
+    <style name="borderTheme" parent="Theme.MaterialComponents.Light.NoActionBar" >
+        <item name="android:textSize" >12sp</item>
+        <item name="android:layout_height">30dp</item>
     </style>
 
 </resources>
