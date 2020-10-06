@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.akbarprojec.loginmvp.Model.Notifikasi;
 import com.akbarprojec.loginmvp.Model.Order;
+import com.akbarprojec.loginmvp.Model.User;
 import com.akbarprojec.loginmvp.Presenter.NotifikasiPresenter;
 import com.akbarprojec.loginmvp.Presenter.OrderPresenter;
 import com.akbarprojec.loginmvp.R;
@@ -23,10 +24,8 @@ import androidx.fragment.app.Fragment;
 
 public class fragmentProfile extends Fragment implements INotifikasiView, IOrderView {
     public static String KEY_USER = "user";
-    public static String KEY_LEVEL = "level";
-
+    User user;
     TextView userid, level, counNotif, countOrder, countResv;
-    String user, lv;
 
     @Nullable
     @Override
@@ -39,21 +38,18 @@ public class fragmentProfile extends Fragment implements INotifikasiView, IOrder
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         userid = view.findViewById(R.id.tv_user);
-        //level = view.findViewById(R.id.tv_level);
         counNotif = view.findViewById(R.id.tv_countNotif);
         countOrder = view.findViewById(R.id.tv_countOrder);
         countResv = view.findViewById(R.id.tv_countReservation);
+        
         NotifikasiPresenter presenter = new NotifikasiPresenter(this);
         OrderPresenter presenter1 = new OrderPresenter(this);
         presenter.listDataNotifikasi();
         presenter1.listDataOrder();
-        //mengambil argument yang dikirim dari ActivityMain
-        user = getArguments().getString(KEY_USER);
-        lv = getArguments().getString(KEY_LEVEL);
 
-        //menampilkan ke TextView
-        userid.setText(user+" || "+lv);
-        //level.setText(lv);
+        //mengambil argument yang dikirim dari ActivityMain
+        user = (User) getArguments().get(KEY_USER);
+        userid.setText(user.getUser()+" || "+user.getLevel());
 
     }
 

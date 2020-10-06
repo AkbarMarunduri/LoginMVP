@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 
 import com.akbarprojec.loginmvp.Adaptor.OrderAdaptor;
 import com.akbarprojec.loginmvp.Model.Order;
+import com.akbarprojec.loginmvp.Model.User;
 import com.akbarprojec.loginmvp.Presenter.OrderPresenter;
 import com.akbarprojec.loginmvp.R;
 import com.akbarprojec.loginmvp.View.AIview.IOrderView;
@@ -23,7 +24,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import es.dmoral.toasty.Toasty;
 
 public class fragmentOrder extends Fragment implements IOrderView {
-    public static String KEY_USER = "";
+    public static String KEY_USER = "user";
+    User user;
     RecyclerView recyclerView;
     OrderAdaptor orderAdaptor;
     Context context;
@@ -42,7 +44,8 @@ public class fragmentOrder extends Fragment implements IOrderView {
         presenter.listDataOrder();
         recyclerView = view.findViewById(R.id.rv_order);
 
-        Toasty.success(view.getContext(),getArguments().getString(KEY_USER),Toasty.LENGTH_SHORT).show();
+        user = (User) getArguments().get(KEY_USER);
+
     }
 
     @Override

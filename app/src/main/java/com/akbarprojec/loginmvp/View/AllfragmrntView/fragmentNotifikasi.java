@@ -7,9 +7,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.akbarprojec.loginmvp.Adaptor.NotifikasiAdaptor;
 import com.akbarprojec.loginmvp.Model.Notifikasi;
+import com.akbarprojec.loginmvp.Model.User;
 import com.akbarprojec.loginmvp.Presenter.NotifikasiPresenter;
 import com.akbarprojec.loginmvp.R;
 import com.akbarprojec.loginmvp.View.AIview.INotifikasiView;
@@ -27,7 +29,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import es.dmoral.toasty.Toasty;
 
 public class fragmentNotifikasi extends Fragment implements INotifikasiView {
-    public static String KEY_USER;
+    public static String KEY_USER="user";
+    User user;
 
     FloatingActionButton bt_crtNotif;
     RecyclerView recyclerView;
@@ -39,7 +42,6 @@ public class fragmentNotifikasi extends Fragment implements INotifikasiView {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_notifikasi_view, container, false);
-        //memanggil presenter listNotifikasi
         NotifikasiPresenter presenter = new NotifikasiPresenter(this);
         presenter.listDataNotifikasi();
         return view;
@@ -52,7 +54,7 @@ public class fragmentNotifikasi extends Fragment implements INotifikasiView {
         bt_crtNotif = view.findViewById(R.id.btCreateNotifikasi);
         bt_crtNotif.setOnClickListener(listener);
 
-        KEY_USER= getArguments().getString(KEY_USER);
+        user= (User) getArguments().get(KEY_USER);
     }
 
     @Override
