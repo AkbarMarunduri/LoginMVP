@@ -1,10 +1,12 @@
 package com.akbarprojec.loginmvp.Model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.text.TextUtils;
 
 import com.google.gson.annotations.SerializedName;
 
-public class User {
+public class User implements Parcelable {
     @SerializedName("iduser")
     String User;
     @SerializedName("pass")
@@ -19,6 +21,25 @@ public class User {
         User = email;
         Password = password;
     }
+
+    protected User(Parcel in) {
+        User = in.readString();
+        Password = in.readString();
+        level = in.readString();
+        status = in.readString();
+    }
+
+    public static final Creator<User> CREATOR = new Creator<User>() {
+        @Override
+        public User createFromParcel(Parcel in) {
+            return new User(in);
+        }
+
+        @Override
+        public User[] newArray(int size) {
+            return new User[size];
+        }
+    };
 
     public String getUser() {
         return User;
@@ -61,5 +82,18 @@ public class User {
             return -1;
         }
 
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(User);
+        parcel.writeString(Password);
+        parcel.writeString(level);
+        parcel.writeString(status);
     }
 }
