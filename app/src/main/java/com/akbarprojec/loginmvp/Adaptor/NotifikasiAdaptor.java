@@ -34,17 +34,7 @@ public class NotifikasiAdaptor extends RecyclerView.Adapter<NotifikasiAdaptor.My
 
     @Override
     public void onBindViewHolder(@NonNull MyNotifikasi holder, int position) {
-        Notifikasi notifikasi = notifikasiList.get(position);
-        String nomor,desc,mesin,status;
-        nomor= notifikasi.getNomor().toString();
-        desc= notifikasi.getDesc().toString();
-        mesin= notifikasi.getMesin().toString();
-        status= notifikasi.getStatus().toString();
-
-        holder.tvnomor.setText(nomor);
-        holder.tvdesc.setText(desc);
-        holder.tvmesin.setText(mesin);
-        holder.tvstatus.setText(status);
+        holder.getDataNotifikasi(notifikasiList.get(position));
     }
 
     @Override
@@ -61,6 +51,19 @@ public class NotifikasiAdaptor extends RecyclerView.Adapter<NotifikasiAdaptor.My
             tvdesc = itemView.findViewById(R.id.tv_desc);
             tvmesin = itemView.findViewById(R.id.tv_mesin);
             tvstatus = itemView.findViewById(R.id.tv_status);
+        }
+
+        public void getDataNotifikasi(Notifikasi notifikasi) {
+            String nomor,desc,mesin,status;
+            nomor= notifikasi.getNomor().toString();
+            desc= notifikasi.getDesc().toString();
+            mesin= notifikasi.getMesin().toString();
+            status= notifikasi.getStatus().toString();
+
+            tvnomor.setText(nomor);
+            tvdesc.setText(desc);
+            tvmesin.setText(mesin);
+            tvstatus.setText(status);
         }
 
     }

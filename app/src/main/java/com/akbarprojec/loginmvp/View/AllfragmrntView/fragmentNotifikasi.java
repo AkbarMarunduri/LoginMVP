@@ -16,12 +16,14 @@ import com.akbarprojec.loginmvp.Presenter.NotifikasiPresenter;
 import com.akbarprojec.loginmvp.R;
 import com.akbarprojec.loginmvp.View.AIview.INotifikasiView;
 import com.akbarprojec.loginmvp.View.CreatedNotificationActivity;
+import com.akbarprojec.loginmvp.databinding.FragmentNotifikasiViewBinding;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -30,6 +32,7 @@ import es.dmoral.toasty.Toasty;
 
 public class fragmentNotifikasi extends Fragment implements INotifikasiView {
     public static String KEY_USER="user";
+    FragmentNotifikasiViewBinding notifikasiViewBinding;
     User user;
 
     FloatingActionButton bt_crtNotif;
@@ -37,11 +40,11 @@ public class fragmentNotifikasi extends Fragment implements INotifikasiView {
     NotifikasiAdaptor adaptor;
     Context context;
 
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_notifikasi_view, container, false);
+        notifikasiViewBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_notifikasi_view, container, false);
+        View view = notifikasiViewBinding.getRoot();
         NotifikasiPresenter presenter = new NotifikasiPresenter(this);
         presenter.listDataNotifikasi();
         return view;

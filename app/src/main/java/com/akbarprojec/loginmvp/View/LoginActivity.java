@@ -43,7 +43,7 @@ public class LoginActivity extends AppCompatActivity implements ILoginView {
 
     @Override
     public void onLoginSucses(String pesan, List<User> users) {
-        User user = users.get(0);
+        User user = users.get(users.size()-1);
         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
         intent.putExtra("user", user);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);

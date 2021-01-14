@@ -15,33 +15,38 @@ import com.akbarprojec.loginmvp.Presenter.OrderPresenter;
 import com.akbarprojec.loginmvp.R;
 import com.akbarprojec.loginmvp.View.AIview.INotifikasiView;
 import com.akbarprojec.loginmvp.View.AIview.IOrderView;
+import com.akbarprojec.loginmvp.databinding.FragmentNotifikasiViewBinding;
+import com.akbarprojec.loginmvp.databinding.FragmentProfileViewBinding;
 
 import java.util.List;
+import java.util.zip.Inflater;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 
 public class fragmentProfile extends Fragment implements INotifikasiView, IOrderView {
     public static String KEY_USER = "user";
+    FragmentProfileViewBinding binding;
     User user;
-    TextView userid, level, counNotif, countOrder, countResv;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_profile_view, container, false);
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_profile_view, container, false);
+        View view = binding.getRoot();
         return view;
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        userid = view.findViewById(R.id.tv_user);
-        counNotif = view.findViewById(R.id.tv_countNotif);
-        countOrder = view.findViewById(R.id.tv_countOrder);
-        countResv = view.findViewById(R.id.tv_countReservation);
-        
+//        userid = view.findViewById(R.id.tv_user);
+//        counNotif = view.findViewById(R.id.tv_countNotif);
+//        countOrder = view.findViewById(R.id.tv_countOrder);
+//        countResv = view.findViewById(R.id.tv_countReservation);
+
         NotifikasiPresenter presenter = new NotifikasiPresenter(this);
         OrderPresenter presenter1 = new OrderPresenter(this);
         presenter.listDataNotifikasi();
@@ -49,7 +54,7 @@ public class fragmentProfile extends Fragment implements INotifikasiView, IOrder
 
         //mengambil argument yang dikirim dari ActivityMain
         user = (User) getArguments().get(KEY_USER);
-        userid.setText(user.getUser()+" || "+user.getLevel());
+        binding.tvUser.setText(user.getUser() + " || " + user.getLevel());
 
     }
 
@@ -61,11 +66,11 @@ public class fragmentProfile extends Fragment implements INotifikasiView, IOrder
 
     @Override
     public void notifikasiList(List<Notifikasi> notifikasiListData) {
-        counNotif.setText(""+ notifikasiListData.size());
+        binding.tvCountNotif.setText("" + notifikasiListData.size());
     }
 
     @Override
     public void listOrder(List<Order> orderList) {
-        countOrder.setText(""+orderList.size());
+        binding.tvCountOrder.setText("" + orderList.size());
     }
 }

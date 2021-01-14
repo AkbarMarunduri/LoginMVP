@@ -1,28 +1,22 @@
 package com.akbarprojec.loginmvp.Presenter;
 
-import android.widget.Toast;
-
 import com.akbarprojec.loginmvp.Api.ApiClient;
 import com.akbarprojec.loginmvp.Api.ApiInterface;
 import com.akbarprojec.loginmvp.Model.User;
 import com.akbarprojec.loginmvp.Model.Value;
 import com.akbarprojec.loginmvp.View.AIview.ILoginView;
 
-import java.util.List;
-
-import es.dmoral.toasty.Toasty;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class LoginPresenter implements ILoginPresenter {
+public class LoginPresenter {
     ILoginView iLoginView;
 
     public LoginPresenter(ILoginView iLoginView) {
         this.iLoginView = iLoginView;
     }
 
-    @Override
     public void onLogin(String user, String pass) {
         User us = new User(user, pass);
         int validated = us.isValidated();
